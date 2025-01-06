@@ -1,0 +1,814 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    margin: 0;
+    /* Disable default scrolling */
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-image: linear-gradient(to left top,
+    #051937, #004d7a, #008793, #00bf72, #a8eb12);
+    z-index: -1; /* Ensures the pseudo-element stays in the background */
+}
+
+@keyframes HueRotate {
+    0% { filter: hue-rotate(0deg); }
+    50% { filter: hue-rotate(90deg); }
+    100% { filter: hue-rotate(0deg) }
+}
+
+
+
+.page {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-size: 3rem;
+    color: white;
+}
+
+.page1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto 0;
+}
+
+.page1 h2, i {
+    text-shadow: 0 2px 1px grey;
+}
+
+.text {
+    position: absolute;
+    top: 50%;
+    font-size: 1rem;
+    transform: translateY(-50%);
+    color: white;
+    border: 1px solid white;
+    padding: 1rem;
+    width: 150px;
+    text-align: center;
+    opacity: 0;
+    animation: LoadInText 4s forwards;
+}
+
+.Main-Screen {
+    height: 400px;
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: LoadIn 2s forwards;
+    animation-delay: 4s;
+}
+
+.Main-Screen h2 {
+    font-size: 4rem;
+    margin: 10px 0;
+    color: white;
+    font-family: "Brush Script MT", sans-serif;
+    z-index: 12;
+}
+
+.Main-Screen .links__container {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    margin: 10px 0;
+    color: white;
+    font-size: 1.6rem;
+}
+
+.links__container div {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.facebook_tooltip, .instagram_tooltip, .linkedin_tooltip {
+    opacity: 0;
+    margin-top: 10px;
+    font-size: 0.8rem;
+    transition: opacity 0.3s ease;
+}
+.fa-facebook:hover,
+.fa-linkedin:hover,
+.fa-square-instagram:hover
+{
+    transform: scale(1.1);
+}
+
+.Facebook:hover .facebook_tooltip,
+.Instagram:hover .instagram_tooltip,
+.LinkedIn:hover .linkedin_tooltip
+{
+    opacity: 1;
+}
+
+@keyframes LoadInText {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; display: none; }
+}
+
+@keyframes LoadIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+a {
+    color: white;
+}
+
+header {
+    width: 100%;
+    font-size: 1.5rem;
+}
+
+header nav {
+    height: auto;
+    border-bottom: 1px solid white;
+    padding: 20px;
+}
+
+header nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+header nav ul li:hover {
+    background-color: rgba(25, 25, 112, 0.2);
+    border-radius: 5px;
+}
+
+li {
+    list-style: none;
+    padding: 5px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.InleidendeTekst__container {
+    width: 70%;
+    text-align: center;
+    font-size: 1.3rem;
+}
+
+#page1 .ArrowDown_item {
+    margin-top: 40px;
+}
+
+.page2 {
+    height: auto;
+}
+
+.page2 > div {
+    height: auto;
+    display: flex;
+    place-content: center;
+}
+
+.page2 .content_container {
+    width: 90%;
+    background-color: rgba(255, 255, 255, 0.1);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 0 5px grey;
+    border-radius: 10px;
+}
+
+.PsuedoHeader_item {
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+    width: 100%;
+    height: auto;
+    border-radius: 10px 10px 0 0;
+    border-bottom: 1px solid white;
+    background-color: rgba(255, 255, 255, 0.5);
+    text-shadow: 0 2px 1px grey;
+}
+
+.AboutMe_container {
+    width: 70%;
+    margin-top: 150px;
+    margin-bottom: 150px;
+    height: auto;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    padding: 20px;
+    font-size: 1.3rem;
+    color: white;
+    background-color: rgba(255, 22, 22, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 0 5px white;
+}
+
+.AboutMe_container p, h2 {
+    margin-top: 10px;
+}
+
+.AboutMe_container img {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    object-fit: cover;
+    transition: box-shadow 1.5s;
+}
+
+.AboutMe_container img:hover {
+    box-shadow: 0 0 25px midnightblue;
+    scale: 105%;
+}
+
+.AboutMe_container img:active {
+    border: 2px solid white;
+    box-shadow: none;
+}
+
+[title="Title"] {
+    font-size: 2rem;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.1);
+    text-shadow: 0 1px 3px grey;
+}
+
+.WorkExperience_container {
+    width: 70%;
+    height: auto;
+    display: flex;
+    flex-basis: 100px;
+    padding: 40px;
+    margin-top: 150px;
+    margin-bottom: 150px;
+    background-color: rgba(255, 22, 22, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 0 5px white;
+}
+
+.Toyota_container, .EsteeLauder_container {
+    font-size: 1.3rem;
+    flex-basis: 50%;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    margin: 5px;
+}
+
+.TechnicalSkills_container,
+.SoftSkills_container {
+    font-size: 1rem;
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    place-content: center;
+}
+
+.TechnicalSkills_container {
+    margin-top: 150px;
+}
+
+.SoftSkills_container {
+    margin-bottom: 150px;
+}
+
+.TechnicalSkills_container caption,
+.SoftSkills_container caption {
+    padding: 10px;
+    background-color: rgba(255, 22, 22, 0.1);
+    border: 1px solid white;
+}
+
+.TechnicalSkills_container thead th,
+.SoftSkills_container thead th {
+    padding: 15px;
+    background-color: rgba(255, 22, 22, 0.1);
+    color: white;
+    border: 1px solid white;
+}
+
+.TechnicalSkills_container tbody tr:nth-child(even),
+.SoftSkills_container tbody tr:nth-child(even) {
+    background-color: rgba(255, 22, 22, 0.1);
+}
+
+.TechnicalSkills_container tbody tr:nth-child(odd),
+.SoftSkills_container tbody tr:nth-child(odd){
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.TechnicalSkills_container td,
+.SoftSkills_container td {
+    width: 200px;
+    text-align: center;
+    padding: 15px;
+    border: 1px solid white;
+}
+
+.AchievedDiplomas_container {
+    width: 70%;
+    height: auto;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    font-size: 1.4rem;
+}
+
+.AchievedDiplomas_container ul {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.AchievedDiplomas_container ul li {
+    background-color: rgba(255, 22, 22, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.page3 {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    height: auto;
+}
+
+.page3 .content_container {
+    width: 90%;
+    background-color: rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 0 5px grey;
+    border-radius: 10px 10px 0 0;
+}
+
+.Logboek_container {
+    margin-top: 100px;
+    margin-bottom: 100px;
+    font-size: 1rem;
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.Logboek_container table {
+    width: 70%;
+    table-layout: fixed;
+    border-collapse: collapse;
+    background-color: rgba(255, 22, 22, 0.1);
+    font-weight: bold;
+}
+
+.Logboek_container caption {
+    font-size: 1.1rem;
+    padding: 10px;
+    background-color: rgba(255, 22, 22, 0.1);
+    border: 1px solid white;
+}
+
+.Logboek_container th {
+    font-size: 1rem;
+    text-align: left;
+    width: 33%;
+    padding: 10px;
+    border: 1px solid white;
+}
+
+.Logboek_container td {
+    font-size: 0.8rem;
+    text-align: left;
+    width: 25%;
+    padding: 10px;
+    line-height: 20px;
+    border: 1px solid white;
+    filter: drop-shadow(0 0 1px grey);
+}
+
+.Logboek_container tbody tr:nth-child(odd) {
+    background-color: rgba(255, 255, 255, 0.3);
+    color: rgba(255, 255, 255, 1);
+}
+
+.page4 {
+    display: flex;
+    align-items: center;
+    height: auto;
+}
+
+.page4 .content_container {
+    width: 90%;
+    background-color: rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 0 5px grey;
+}
+
+.roll_container {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding: 10px;
+    background-color: rgba(255, 22, 22, 0.1);
+}
+
+.MyChoiceForStudy_container h3, .MyCompetencies_container h3,
+.SitueringProfiel_container h3, .ActivityExamples_container h3  {
+    margin-bottom: 100px;
+    font-size: 2rem;
+    text-align: center;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.MyChoiceForStudy_container {
+    margin-top: 100px;
+    margin-bottom: 50px;
+    width: 70%;
+}
+
+.MyChoiceForStudy_container strong {
+    font-size: 1.2rem;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.MyChoiceForStudy_container p {
+    font-size: 1rem;
+    margin: 15px;
+}
+
+[title="Answer"] {
+    padding: 0 0 10px 10px;
+}
+
+.MyCompetencies_container {
+    margin-top: 50px;
+    margin-bottom: 100px;
+}
+
+.MyCompetencies_container table {
+    margin: 0 auto;
+    width: 80%;
+    table-layout: fixed;
+    border-collapse: collapse;
+    background-color: rgba(255, 22, 22, 0.1);
+}
+
+.MyCompetencies_container th:nth-child(1) {
+    width: 10%;
+}
+
+.MyCompetencies_container th:nth-child(2) {
+    width: 90%;
+}
+
+.MyCompetencies_container caption {
+    font-size: 1.1rem;
+    padding: 10px;
+    background-color: rgba(255, 22, 22, 0.1);
+    border: 1px solid white;
+}
+
+.MyCompetencies_container th {
+    font-size: 1rem;
+    padding: 10px;
+    text-align: left;
+    border: 1px solid white;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.MyCompetencies_container td {
+    font-size: 0.8rem;
+    font-weight: bold;
+    padding: 10px;
+    text-align: left;
+    border: 1px solid white;
+    line-height: 20px;
+}
+
+.SitueringProfiel_container {
+    font-size: 1rem;
+    width: 70%;
+    margin-bottom: 50px;
+}
+
+.SitueringProfiel_container strong {
+    font-size: 1.2rem;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.SitueringProfiel_container p {
+    font-size: 1rem;
+    margin: 15px;
+}
+
+.ActivityExamples_container {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: 70%;
+}
+
+.ActivityExamples_container strong {
+    font-size: 1.2rem;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.ActivityExamples_container p {
+    font-size: 1rem;
+    margin: 15px;
+}
+
+.page5 {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    height: auto;
+}
+
+.page5 .content_container {
+    width: 90%;
+    background-color: rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 0 5px grey;
+    border-radius: 10px 10px 0 0;
+}
+
+[title="Assignment"] {
+    width: 90%;
+    height: auto;
+    display: flex;
+    margin-top: 50px;
+    padding: 20px;
+    gap: 20px;
+}
+
+[title="Assignment"] .image_container {
+    width: 30%;
+}
+
+[title="Assignment"] .image_container img {
+    background-size: cover;
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+    transform-origin: top left;
+}
+
+.image_container img:hover {
+    transform: scale(2);
+    border: 3px solid black;
+}
+
+[title="Assignment"] .information_container {
+    width: 70%;
+}
+
+[title="Assignment"] .information_container h5 {
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+    transform-origin: top left;
+}
+
+.information_container h5:hover {
+    transform: scale(1.05);
+}
+
+[title="Assignment"] .information_container p {
+    margin-top: 20px;
+    font-size: 1rem;
+}
+
+[title="Assignment"] .information_container span {
+    font-size: 1rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.page5 h4 {
+    margin-top: 50px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+[title="ProjectIntroduction"] {
+    font-size: 1.2rem;
+    width: 70%;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.page6 {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    height: auto;
+}
+
+.page6 .content_container {
+    width: 90%;
+    background-color: rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 0 5px grey;
+    border-radius: 10px 10px 0 0;
+}
+
+.Reflectie_container {
+    font-size: 1rem;
+    width: 70%;
+    margin-bottom: 50px;
+    margin-top: 100px;
+}
+
+.Reflectie_container h3 {
+    margin-bottom: 30px;
+    font-size: 2rem;
+    text-align: center;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+[title="xFACTOR"] {
+    position: relative;
+    width: 100%;
+    margin-bottom: 150px;
+}
+
+[title="intro"] {
+    text-align: center;
+}
+
+[title="text"] {
+    margin-top: 30px;
+}
+
+.Reflectie_container strong {
+    font-size: 1.2rem;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.Reflectie_container p {
+    font-size: 1rem;
+    margin: 15px;
+}
+
+.VierAssen_container {
+    width: 600px;
+    height: 600px;
+    z-index: 4;
+    position: relative;
+    margin: 0 auto;
+}
+
+.VierAssen_container .X {
+    width: 400px;
+    height: 400px;
+    font-size: 20rem;
+    border: 2px solid white;
+    border-radius: 50%;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-53%, -53%);
+    animation: Pulse 1s infinite;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    scale: 0;
+}
+
+.FlexBox_container {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.FlexBox_container:nth-child(2) {
+    align-items: end;
+}
+
+.FlexBox_container p {
+    width: 30%;
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 5px;
+    border-radius: 10px;
+    border: 3px solid black;
+    background-color: white;
+    color: black;
+    font-weight: bold;
+}
+
+@keyframes Pulse {
+    0% { width: 400px; height: 400px; }
+    75% { width: 420px; height: 420px; }
+    90% { width: 425px; height: 425px; }
+    100% { width: 400px; height: 400px; }
+}
+
+.text_container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+
+@media screen and (max-width: 756px) {
+    .Main-Screen h2 {
+        font-size: 3rem;
+    }
+
+    .card_item1 {
+        max-height: 250px;
+        max-width: 200px;
+    }
+
+    .page1 .InleidendeTekst__container p {
+        font-size: 0.8rem;
+    }
+
+    header {
+        font-size: 1rem;
+    }
+
+    header nav ul {
+        gap: 20px;
+    }
+}
+
+@media screen and (max-width: 511px) {
+    .card_item1 {
+        max-height: 170px;
+        font-size: 0.8rem;
+    }
+
+    .Main-Screen h2 {
+        font-size: 2rem;
+    }
+
+    header {
+        font-size: 0.8rem;
+    }
+
+    header nav {
+        padding: 0;
+    }
+
+    header nav ul {
+        flex-direction: column;
+        text-align: center;
+        gap: 0;
+    }
+
+    #page5 .cards_container div div p {
+        font-size: 0.78rem;
+    }
+
+    .fa-facebook, .fa-square-instagram, .fa-linkedin {
+        font-size: 1rem;
+    }
+
+    .facebook_tooltip, .instagram_tooltip, .linkedin_tooltip {
+        font-size: 0.5rem;
+    }
+}
+
+
+
+
+
